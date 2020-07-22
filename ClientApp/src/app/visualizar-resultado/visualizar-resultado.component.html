@@ -1,0 +1,46 @@
+<div class="content" role="main">
+  <div class="card highlight-card card-big card-primary" style="height: 100%;">
+    <span>COPA</span><br />
+    <span class="subtitulo">Resultado Final</span><br />
+    <span class="">Veja o resultado final da Copa de forma simples e rápida</span>
+  </div>
+
+  <br />
+
+  <p *ngIf="!resultado"><em>Carregando...</em></p>
+
+  <div *ngIf="resultado" style="width: 100%">  
+    <div class="alert alert-success" role="alert" style="width: 100%">
+      <h6 class="alert-heading">RESULTADO</h6>
+      <hr />
+      <p>1º {{ resultado?.campeao }}</p>
+      <p>2º {{ resultado?.vice }}</p>
+    </div>
+
+    <div class="alert alert-secondary" role="alert" style="width: 100%">
+      <h6 class="alert-heading">FINAL</h6>
+      <hr />
+      <p>{{ resultado?.final }}</p>
+    </div>
+
+    <div class="alert alert-secondary" role="alert" style="width: 100%">
+      <h6 class="alert-heading">SEMIFINAIS</h6>
+      <hr />
+      <p>{{ resultado?.semifinais.chave1 }}</p>
+      <hr />
+      <p>{{ resultado?.semifinais.chave2 }}</p>
+    </div>
+
+    <div class="alert alert-secondary" role="alert" style="width: 100%">
+      <h6 class="alert-heading">QUARTAS DE FINAL</h6>
+      <hr />
+      <p>{{ resultado?.quartasfinal.chave1 }}</p>
+      <hr />
+      <p>{{ resultado?.quartasfinal.chave2 }}</p>
+      <hr />
+      <p>{{ resultado?.quartasfinal.chave3 }}</p>
+      <hr />
+      <p>{{ resultado?.quartasfinal.chave4 }}</p>
+    </div>
+  </div>
+</div>

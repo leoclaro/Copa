@@ -1,0 +1,69 @@
+<div class="content" role="main">
+
+  <div class="card highlight-card card-big card-primary" style="height: 100%;">
+    <span>COPA</span><br />
+    <span class="subtitulo">Fase de Seleção</span><br />
+    <span class="">
+      Selecione 8 equipes que você deseja para a competição e depois pressione o botão GERAR COPA para
+      prosseguir.
+    </span>
+  </div>
+
+  <div class="card highlight-card card-big" style="height: 80px;">
+    <div style="float: left; position: relative; text-align: left;">
+      Selecionados<br />
+      {{ getCountCheckedEquipes() }} de 8 equipes
+    </div>
+    <div style="float: right; position: relative;">      
+      <button type="button" class="btn btn-success" data-toggle="modal" (click)="gerarCopa()" data-target="#gerarCopaModal">
+        Gerar Copa
+      </button>
+    </div>
+  </div>
+
+
+  <div class="card-container">
+
+    <p *ngIf="!equipes"><em>Carregando...</em></p>
+
+    <div class="card" tabindex="0" *ngFor="let equipe of equipes;  let i=index">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="{{ equipe.id }}"
+               value="{{ equipe.id }}"
+               name="{{ equipe.nome }}"
+               (change)="onChange($event)">
+        <label class="form-check-label" for="{{ equipe.id }}">
+          {{ equipe.nome }}<br />{{ equipe.sigla }}
+        </label>
+      </div>
+    </div>
+
+
+
+    <br />
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div #content *ngIf="showGerarCopaModalBox" class="modal fade" id="gerarCopaModal" tabindex="-1" role="dialog" aria-labelledby="gerarCopaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gerar Copa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Você deve selecionar 8 equipes para que possa gerar a copa.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Entendido</button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+
